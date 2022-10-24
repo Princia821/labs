@@ -1,4 +1,4 @@
 <?php
-require "./login/register.php";
+header('Location: register/register.php');
 ?> 
 

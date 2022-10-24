@@ -1,30 +1,44 @@
 <?php
 
-// make controller aware of the exsiting class
-require('../classes/customer_class.php');
+// connect to the customer class
+require_once('../classes/customer_class.php');
 
-//add, edit, delete methods
+//add, update, delete methods
 
 //add customer method
-function addCustomer(){
+function addCustomer_ctr($cust_name, $cust_email, $cust_password, $cust_country, $cust_city,  $cust_contact)
+{
+    //create an instance of the Product class
+    $class_inst = new customer_class();
 
-    //create an instance of the class
-    $add_cust = new customer($data['c_name'], $data['c_email'], $data['c_password'], $data['c_country'], $data['c_city'], $data['c_contact']);
-
-    return $add_cust->addCustomer($data['c_name'], $data['c_email'], $data['c_password'], $data['c_country'], $data['c_city'], $data['c_contact']); 
+    // call the method from the class
+    return $class_inst->addCustomer_cls($cust_name, $cust_email, $cust_password, $cust_country, $cust_city,  $cust_contact);
 
 }
 
-//edit customer method
-function editCustomer($data){
-  
+function updateCustomer_ctr($cust_name, $cust_email, $cust_password, $cust_country, $cust_city,  $cust_contact)
+{
+    // create an instance of the Product class
+    $class_inst = new customer_class();
+
+    // call the method from the class
+    return $class_inst->updateCustomer_cls($cust_name, $cust_email, $cust_password, $cust_country, $cust_city,  $cust_contact);
 }
 
-//delete customer method
-function deleteCustomer($data){
-  
+function deleteCustomer_ctr($id)
+{
+    // create an instance of the Product class
+    $class_instance = new customer_class();
+
+    // call the method from the class
+    return $class_instance->deleteCustomer_cls($id);
+}
+
+function customer_login_ctr($cust_email, $cust_password)
+{
+    $class_inst = new customer_class();
+
+    return $class_inst->customer_login_cls($cust_email,$cust_password);
 }
 
 ?>
-
-
